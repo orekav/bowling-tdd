@@ -1,4 +1,4 @@
-type Shot = number | "/" | "X" | "-";
+export type Shot = number | "/" | "X" | "-";
 
 const shotToNumber = (aShot: Shot) => {
     switch (aShot) {
