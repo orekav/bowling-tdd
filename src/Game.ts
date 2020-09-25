@@ -21,15 +21,16 @@ export default class Game {
                 const [nextFirstFrame, nextSecondFrame] = frames.slice(index + 1);
                 const rollsConcat  =
                     (nextFirstFrame?.rolls || "")
-                    + (nextFirstFrame?.rolls || "")
-                    + this.lastShots;
+                    + (nextSecondFrame?.rolls || "")
+                    + this.lastShots.join("")
+                    + "-";
 
                 const [nextFirstShot, nextSecondShot] = rollsConcat.split("") as Shot[];
 
                 return aFrame.frame.getScore(
                     nextFirstShot,
                     nextSecondShot
-                )
+                );
             })
             .reduce((a, b) => a + b);
     }
