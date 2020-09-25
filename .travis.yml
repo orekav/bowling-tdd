@@ -9,3 +9,6 @@ cache:
         - node_modules
 script:
     - npm run test
+    - npm run coveralls
+notifications:
+    webhooks: https://coveralls.io/webhook
