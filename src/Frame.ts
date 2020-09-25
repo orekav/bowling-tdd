@@ -16,7 +16,7 @@ export default class Frame {
             this.rollsScore = 10;
         } else {
             this.rollsScore = rolls
-                .map(Number)
+                .map(aChar => aChar === "-" ? 0 : Number(aChar))
                 .reduce((a, b) => a + b);
         }
     }

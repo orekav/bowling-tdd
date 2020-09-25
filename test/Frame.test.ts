@@ -3,7 +3,7 @@ import Frame from "../src/Frame";
 describe("Frame scores without strike nor spares", () => {
 
   it("should score 0 points when rolls two balls and knocks 0 pins in each roll", () => {
-    const aFrame = new Frame("00");
+    const aFrame = new Frame("--");
     const score = aFrame.getScore();
     expect(score).toBe(0);
   });
