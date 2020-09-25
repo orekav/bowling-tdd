@@ -42,7 +42,7 @@ describe("Frame scores with spares", () => {
   });
 
   it("should score 20 points when does an spare and next roll knocks 1 pins", () => {
-    const nextShot = '/';
+    const nextShot = "/";
     const score = spareFrame.getScore(nextShot);
     expect(score).toBe(20);
   });
@@ -67,17 +67,17 @@ describe("Frame scores with strike", () => {
   });
 
   it("should score 10 points when does an Strike followed by two spares", () => {
-    const score = spareFrame.getScore('-', '-');
+    const score = spareFrame.getScore("-", "-");
     expect(score).toBe(10);
   });
 
   it("should score 30 points when does an Strike followed by a spare", () => {
-    const score = spareFrame.getScore(7, '/');
+    const score = spareFrame.getScore(7, "/");
     expect(score).toBe(20);
   });
 
   it("should score 30 points when does an Strike followed by two strikes", () => {
-    const score = spareFrame.getScore('X', 'X');
+    const score = spareFrame.getScore("X", "X");
     expect(score).toBe(30);
   });
 

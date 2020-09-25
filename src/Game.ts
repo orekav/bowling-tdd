@@ -19,7 +19,7 @@ export default class Game {
         return this.frames
             .map((aFrame, index, frames) => {
                 const [nextFirstFrame, nextSecondFrame] = frames.slice(index + 1);
-                const rollsConcat  =
+                const rollsConcat =
                     (nextFirstFrame?.rolls || "")
                     + (nextSecondFrame?.rolls || "")
                     + this.lastShots.join("")
