@@ -26,12 +26,19 @@ describe("Frame scores with spares", () => {
   let spareFrame: Frame;
 
   beforeEach(() => {
-    spareFrame = new Frame("55");
-  })
+    spareFrame = new Frame("5/");
+  });
 
   it("should scores 10 points when does an spare and next roll knocks 0 pins", () => {
-    const score = spareFrame.getScore();
+    const nextShot = 0;
+    const score = spareFrame.getScore(nextShot);
     expect(score).toBe(10);
+  });
+
+  it("should scores 11 points when does an spare and next roll knocks 1 pins", () => {
+    const nextShot = 1;
+    const score = spareFrame.getScore(nextShot);
+    expect(score).toBe(11);
   });
 
 });

@@ -1,14 +1,23 @@
 export class Frame {
-    private rolls: number[];
+    private rollsScore: number;
+    private isSpare: boolean = false;
 
-    constructor(rolls: string) {
-        this.rolls = rolls
-            .split("")
-            .map(Number);
+    constructor(rollsString: string) {
+        const rolls = rollsString.split("");
+
+        if (rolls.includes("/")) {
+            this.isSpare = true;
+            this.rollsScore = 10;
+        }
+        else {
+            this.rollsScore = rolls
+                .map(Number)
+                .reduce((a, b) => a + b);
+        }
     }
 
-    public getScore() {
-        return this.rolls.reduce((a, b) => a + b);
+    public getScore(nextShot?: number) {
+        return this.rollsScore + (this.isSpare ? nextShot : 0);
     }
 }
 
