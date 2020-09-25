@@ -3,10 +3,15 @@ export class Frame {
     private isSpare: boolean = false;
 
     constructor(rollsString: string) {
-        const rolls = rollsString.split("");
+        const rolls = rollsString
+            .toLocaleUpperCase()
+            .split("");
 
         if (rolls.includes("/")) {
             this.isSpare = true;
+            this.rollsScore = 10;
+        }
+        else if (rolls.includes("X")) {
             this.rollsScore = 10;
         }
         else {

@@ -42,3 +42,17 @@ describe("Frame scores with spares", () => {
   });
 
 });
+
+describe("Frame scores with strike", () => {
+  let spareFrame: Frame;
+
+  beforeEach(() => {
+    spareFrame = new Frame("x");
+  });
+
+  it("should scores 10 points when does an Strike followed by two rolls that knocks 0 pins each one", () => {
+    const score = spareFrame.getScore();
+    expect(score).toBe(10);
+  });
+
+});
