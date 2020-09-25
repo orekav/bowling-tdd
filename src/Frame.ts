@@ -1,4 +1,4 @@
-export class Frame {
+export default class Frame {
     private rollsScore: number;
     private isSpare: boolean = false;
     private isStrike: boolean = false;
@@ -27,7 +27,3 @@ export class Frame {
             + (this.isStrike ? nextFirstShot + nextSecondShot : 0);
     }
 }
-
-export default {
-    Frame,
-};

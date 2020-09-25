@@ -1,4 +1,4 @@
-import { Frame } from "../src/bowling";
+import Frame from "../src/Frame";
 
 describe("Frame scores without strike nor spares", () => {
 
