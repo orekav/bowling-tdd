@@ -71,9 +71,9 @@ describe("Frame scores with strike", () => {
     expect(score).toBe(10);
   });
 
-  it("should score 30 points when does an Strike followed by two spares", () => {
-    const score = spareFrame.getScore('/', '/');
-    expect(score).toBe(30);
+  it("should score 30 points when does an Strike followed by a spare", () => {
+    const score = spareFrame.getScore(7, '/');
+    expect(score).toBe(20);
   });
 
   it("should score 30 points when does an Strike followed by two strikes", () => {

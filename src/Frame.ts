@@ -35,6 +35,10 @@ export default class Frame {
     public getScore(nextFirstShot?: Shot, nextSecondShot?: Shot) {
         return this.rollsScore
             + (this.isSpare ? shotToNumber(nextFirstShot) : 0)
-            + (this.isStrike ? shotToNumber(nextFirstShot) + shotToNumber(nextSecondShot) : 0);
+            + (this.isStrike ?
+                ([nextFirstShot, nextSecondShot].includes("/") ?
+                    10 : shotToNumber(nextFirstShot) + shotToNumber(nextSecondShot)
+                )
+                : 0);
     }
 }
