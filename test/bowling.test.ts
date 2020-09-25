@@ -51,8 +51,13 @@ describe("Frame scores with strike", () => {
   });
 
   it("should scores 10 points when does an Strike followed by two rolls that knocks 0 pins each one", () => {
-    const score = spareFrame.getScore();
+    const score = spareFrame.getScore(0, 0);
     expect(score).toBe(10);
+  });
+
+  it("should scores 20 points when does an Strike followed by two rolls that knocks 5 pins each one", () => {
+    const score = spareFrame.getScore(5, 5);
+    expect(score).toBe(20);
   });
 
 });
