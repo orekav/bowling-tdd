@@ -21,3 +21,17 @@ describe("Frame scores without strike nor spares", () => {
   });
 
 });
+
+describe("Frame scores with spares", () => {
+  let spareFrame: Frame;
+
+  beforeEach(() => {
+    spareFrame = new Frame("55");
+  })
+
+  it("should scores 10 points when does an spare and next roll knocks 0 pins", () => {
+    const score = spareFrame.getScore();
+    expect(score).toBe(10);
+  });
+
+});
