@@ -1,7 +1,9 @@
 export const rollAndScore = (frame: string): number => {
-    if (frame == "44") return 8;
-    return 0;
-}
+    return frame
+        .split("")
+        .map(Number)
+        .reduce((a, b) => a + b)
+};
 
 export default {
     rollAndScore
