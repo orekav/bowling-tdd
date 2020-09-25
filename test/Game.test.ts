@@ -38,4 +38,10 @@ describe("Game scores", () => {
     expect(score).toBe(90);
   });
 
+  it("should score 167 points when it does 'X|7/|9-|X|-8|8/|-6|X|X|X||81'", () => {
+    const aGame = new Game("X|7/|9-|X|-8|8/|-6|X|X|X||81");
+    const score = aGame.getScore();
+    expect(score).toBe(167);
+  });
+
 });
