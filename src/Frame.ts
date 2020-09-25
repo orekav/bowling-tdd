@@ -1,12 +1,23 @@
+type Shot = number | "/" | "X" | "-";
+
+const shotToNumber = (aShot: Shot) => {
+    switch (aShot) {
+        case "-": return 0;
+        case "/": return 10;
+        case "X": return 10;
+        default: return Number(aShot);
+    }
+};
+
 export default class Frame {
     private rollsScore: number;
     private isSpare: boolean = false;
     private isStrike: boolean = false;
 
     constructor(rollsString: string) {
-        const rolls = rollsString
+        const rolls: Shot[] = rollsString
             .toLocaleUpperCase()
-            .split("");
+            .split("") as Shot[];
 
         if (rolls.includes("/")) {
             this.isSpare = true;
@@ -16,14 +27,14 @@ export default class Frame {
             this.rollsScore = 10;
         } else {
             this.rollsScore = rolls
-                .map(aChar => aChar === "-" ? 0 : Number(aChar))
+                .map(shotToNumber)
                 .reduce((a, b) => a + b);
         }
     }
 
-    public getScore(nextFirstShot?: number, nextSecondShot?: number) {
+    public getScore(nextFirstShot?: Shot, nextSecondShot?: Shot) {
         return this.rollsScore
-            + (this.isSpare ? nextFirstShot : 0)
-            + (this.isStrike ? nextFirstShot + nextSecondShot : 0);
+            + (this.isSpare ? shotToNumber(nextFirstShot) : 0)
+            + (this.isStrike ? shotToNumber(nextFirstShot) + shotToNumber(nextSecondShot) : 0);
     }
 }
