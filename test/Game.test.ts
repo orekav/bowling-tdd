@@ -24,6 +24,18 @@ describe("Game scores", () => {
     const aGame = new Game("X|X|X|X|X|X|X|X|X|X||XX");
     const score = aGame.getScore();
     expect(score).toBe(300);
-  });  
+  });
+
+  it("should score 150 points when it does a strike in every throw and the extra roll is a 5", () => {
+    const aGame = new Game("5/|5/|5/|5/|5/|5/|5/|5/|5/|5/||5");
+    const score = aGame.getScore();
+    expect(score).toBe(150);
+  });
+
+  it("should score 90 points when it does '9-|9-|9-|9-|9-|9-|9-|9-|9-|9-||'", () => {
+    const aGame = new Game("9-|9-|9-|9-|9-|9-|9-|9-|9-|9-||");
+    const score = aGame.getScore();
+    expect(score).toBe(90);
+  });
 
 });
